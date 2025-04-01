@@ -1,9 +1,10 @@
 # 🍽️ Plataforma de Recomendación de Platos con IA y Generación de Informes de Tendencias para Restauradores
 
 
+
 Utiliza **Inteligencia Artificial** para recomendar platos en tiempo real según las preferencias del comensal y genera informes diarios de tendencias para ayudar a los restauradores a tomar decisiones estratégicas sobre su menú.
 
---
+
 
 ## 📖 Índice
 
@@ -17,7 +18,7 @@ Utiliza **Inteligencia Artificial** para recomendar platos en tiempo real según
 - [Licencia](#-licencia)
 - [Contacto](#-contacto)
 
-<hr/>
+
 
 ## 📜 Descripción
 
@@ -33,7 +34,7 @@ Este proyecto ofrece una **solución tecnológica accesible** para pequeños res
   - Estadísticas y gráficos interactivos  
   Esto permite a los restauradores ajustar el menú y operaciones basándose en datos reales.
 
-<hr/>
+
 
 ## 🎯 Características
 
@@ -49,7 +50,7 @@ Este proyecto ofrece una **solución tecnológica accesible** para pequeños res
   - ⚡ Experiencia de usuario fluida y moderna, desarrollada en React.
   - 🎨 Diseño minimalista y atractivo para facilitar la lectura y la toma de decisiones.
 
-<hr/>
+
 
 ## 🛠️ Tecnologías Utilizadas
 
@@ -70,7 +71,7 @@ Este proyecto ofrece una **solución tecnológica accesible** para pequeños res
 - **Git & GitHub:** Control de versiones y colaboración en el proyecto 🧑‍💻.
 - **Figma / Adobe XD:** Diseño de wireframes y prototipos para la interfaz 🎨.
 
-<hr/>
+
 
 ## 🚀 Instalación y Configuración
 
@@ -79,4 +80,4 @@ Este proyecto ofrece una **solución tecnológica accesible** para pequeños res
 - [PostgreSQL](https://www.postgresql.org/)
 - [Git](https://git-scm.com/)
 
-<hr/>
+
