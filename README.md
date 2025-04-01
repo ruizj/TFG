@@ -1,9 +1,9 @@
 # 🍽️ Plataforma de Recomendación de Platos con IA y Generación de Informes de Tendencias para Restauradores
-<hr/>
+
 
 Utiliza **Inteligencia Artificial** para recomendar platos en tiempo real según las preferencias del comensal y genera informes diarios de tendencias para ayudar a los restauradores a tomar decisiones estratégicas sobre su menú.
 
-<hr/>
+--
 
 ## 📖 Índice
 
