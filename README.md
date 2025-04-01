@@ -1,9 +1,9 @@
-# 🍽️ Plataforma de Recomendación de Platos con IA
-#### Generación de Informes de Tendencias para Restauradores
+# 🍽️ Plataforma de Recomendación de Platos con IA y Generación de Informes de Tendencias para Restauradores
+<hr/>
 
-Una **aplicación web** innovadora creada para pequeños restaurantes de bajo presupuesto. Utiliza **Inteligencia Artificial** para recomendar platos en tiempo real según las preferencias del comensal y genera informes diarios de tendencias para ayudar a los restauradores a tomar decisiones estratégicas sobre su menú.
+Utiliza **Inteligencia Artificial** para recomendar platos en tiempo real según las preferencias del comensal y genera informes diarios de tendencias para ayudar a los restauradores a tomar decisiones estratégicas sobre su menú.
 
----
+<hr/>
 
 ## 📖 Índice
 
@@ -17,7 +17,7 @@ Una **aplicación web** innovadora creada para pequeños restaurantes de bajo pr
 - [Licencia](#-licencia)
 - [Contacto](#-contacto)
 
----
+<hr/>
 
 ## 📜 Descripción
 
@@ -33,7 +33,7 @@ Este proyecto ofrece una **solución tecnológica accesible** para pequeños res
   - Estadísticas y gráficos interactivos  
   Esto permite a los restauradores ajustar el menú y operaciones basándose en datos reales.
 
----
+<hr/>
 
 ## 🎯 Características
 
@@ -49,7 +49,7 @@ Este proyecto ofrece una **solución tecnológica accesible** para pequeños res
   - ⚡ Experiencia de usuario fluida y moderna, desarrollada en React.
   - 🎨 Diseño minimalista y atractivo para facilitar la lectura y la toma de decisiones.
 
----
+<hr/>
 
 ## 🛠️ Tecnologías Utilizadas
 
@@ -70,7 +70,7 @@ Este proyecto ofrece una **solución tecnológica accesible** para pequeños res
 - **Git & GitHub:** Control de versiones y colaboración en el proyecto 🧑‍💻.
 - **Figma / Adobe XD:** Diseño de wireframes y prototipos para la interfaz 🎨.
 
----
+<hr/>
 
 ## 🚀 Instalación y Configuración
 
@@ -79,9 +79,4 @@ Este proyecto ofrece una **solución tecnológica accesible** para pequeños res
 - [PostgreSQL](https://www.postgresql.org/)
 - [Git](https://git-scm.com/)
 
-### Pasos
-
-1. **Clona el repositorio:**
-   ```bash
-   git clone https://github.com/tu-usuario/plataforma-recomendacion-platos.git
-   cd plataforma-recomendacion-platos
+<hr/>
