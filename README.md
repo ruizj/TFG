@@ -1,83 +1,82 @@
-# 🍽️ Plataforma de Recomendación de Platos con IA y Generación de Informes de Tendencias para Restauradores
+# 🚗 CarService Popeye
 
+**Plataforma web y app móvil para taller mecánico y compraventa de vehículos**
 
+---
 
-Utiliza **Inteligencia Artificial** para recomendar platos en tiempo real según las preferencias del comensal y genera informes diarios de tendencias para ayudar a los restauradores a tomar decisiones estratégicas sobre su menú.
+## 📋 Resumen
 
+CarService Popeye es una solución digital integral compuesta por una página web administrativa y una app móvil destinada a clientes. Su objetivo es digitalizar los servicios de un taller mecánico, permitiendo la gestión de citas, servicios y vehículos usados.
 
+---
 
-## 📖 Índice
+## 🔧 Tecnologías utilizadas
 
-- [Descripción](#-descripción)
-- [Características](#-características)
-- [Tecnologías Utilizadas](#-tecnologías-utilizadas)
-- [Instalación y Configuración](#-instalación-y-configuración)
-- [Uso](#-uso)
-- [Plan de Desarrollo](#-plan-de-desarrollo)
-- [Contribuciones](#-contribuciones)
-- [Licencia](#-licencia)
-- [Contacto](#-contacto)
+- 🌐 **Frontend Web:** React  
+- 📱 **App Móvil:** React Native  
+- 🖥️ **Backend:** Node.js + Express  
+- 🗃️ **Base de Datos:** PostgreSQL  
+- 🧩 **ORM:** Sequelize  
 
+---
 
+## 💡 Funcionalidades principales
 
-## 📜 Descripción
+### 🧑‍🔧 Web para administración
+- Gestión de servicios mecánicos.
+- Gestión de vehículos usados.
+- Gestión de reservas de citas.
 
-Este proyecto ofrece una **solución tecnológica accesible** para pequeños restaurantes que no dependen de grandes inversiones. Se enfoca en:
+### 👨‍💼 App para clientes
+- Consulta de servicios y vehículos.
+- Reserva de citas para el taller.
+- Contacto directo con el taller.
 
-- **Recomendaciones Personalizadas:**  
-  La aplicación analiza el perfil del usuario (gustos, restricciones y historial) y las tendencias en consumo para ofrecer sugerencias de platos en tiempo real.
+---
 
-- **Informes Diarios de Tendencias:**  
-  Al finalizar la jornada, se generan informes visuales que incluyen:
-  - Ranking de platos populares
-  - Análisis de aceptación de las recomendaciones
-  - Estadísticas y gráficos interactivos  
-  Esto permite a los restauradores ajustar el menú y operaciones basándose en datos reales.
+## 🎯 Objetivos del proyecto
 
+- Modernizar la gestión de talleres mecánicos.
+- Facilitar la compraventa de vehículos usados.
+- Mejorar la experiencia del cliente mediante herramientas digitales.
 
+---
 
-## 🎯 Características
+## 🧑‍🤝‍🧑 Público objetivo
 
-- **Recomendaciones en Tiempo Real:**  
-  - 🎯 Filtrado por preferencias y restricciones.
-  - 📊 Ajuste dinámico según las tendencias del consumo.
+- Propietarios de talleres mecánicos.
+- Clientes que buscan servicios de taller o comprar vehículos usados.
 
-- **Generación de Informes Diarios:**  
-  - 📈 Visualizaciones interactivas con gráficos y tablas.
-  - 📝 Análisis estadístico para optimizar el menú.
-  
-- **Interfaz Intuitiva:**  
-  - ⚡ Experiencia de usuario fluida y moderna, desarrollada en React.
-  - 🎨 Diseño minimalista y atractivo para facilitar la lectura y la toma de decisiones.
+---
 
+## 📌 Justificación
 
+Los negocios tradicionales, como los talleres mecánicos, necesitan adaptarse a las nuevas demandas digitales. Esta plataforma ofrece una solución sencilla y moderna para atraer clientes y facilitar la gestión diaria del taller.
 
-## 🛠️ Tecnologías Utilizadas
+---
 
-### Frontend
-- **React:** Construcción de una UI dinámica y moderna ⚛️.
-- **Chart.js / D3.js:** Visualización interactiva de datos y estadísticas 📊.
+## 🛠️ Metodología de desarrollo
 
-### Backend
-- **Node.js & Express:** Desarrollo de API RESTful y gestión de la lógica de negocio 🚀.
+- 🔍 Análisis de requisitos
+- 🎨 Diseño del sistema
+- 💻 Desarrollo web + backend
+- 📲 Desarrollo de app móvil
+- 🧪 Pruebas funcionales y test de usuarios
+- 📝 Documentación técnica
 
-### Base de Datos
-- **PostgreSQL:** Almacenamiento de datos (usuarios, platos, registros diarios) 🗄️.
+---
 
-### Inteligencia Artificial
-- **TensorFlow.js:** Motor de recomendaciones basado en datos y tendencias 🤖.
+## 🗓️ Cronograma
 
-### Otras Herramientas
-- **Git & GitHub:** Control de versiones y colaboración en el proyecto 🧑‍💻.
-- **Figma / Adobe XD:** Diseño de wireframes y prototipos para la interfaz 🎨.
+1. 📊 Análisis y planificación – 2 semanas  
+2. 🧱 Diseño – 2 semanas  
+3. 💻 Desarrollo web y backend – 4 semanas  
+4. 📱 Desarrollo app – 3 semanas  
+5. 🔎 Pruebas y ajustes – 2 semanas  
+6. 📚 Documentación y entrega – 1 semana  
 
+---
 
+## 📎 Licencia
 
-## 🚀 Instalación y Configuración
-
-### Prerrequisitos
-- [Node.js](https://nodejs.org/) (v12+)
-- [PostgreSQL](https://www.postgresql.org/)
-- [Git](https://git-scm.com/)
-
-
+MIT License © [Javier Ruiz Porta]
