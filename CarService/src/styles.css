@@ -78,3 +78,30 @@ body {
 .form-reserva button:hover {
   background: #145da0;
 }
+/* Contenedor principal para limitar el ancho de la galería */
+.image-gallery {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Estilos para las imágenes grandes */
+.image-gallery-slide img {
+  width: 80% !important;       /* Ocupa todo el ancho del contenedor */
+  height: 400px !important;     /* Alto fijo para todas las imágenes */
+  object-fit: cover !important; /* Recorta la imagen para llenar sin deformar */
+  object-position: center center !important; /* Centra la imagen */
+  border-radius: 10px;
+  background-color: #eee;       /* Fondo para evitar espacios vacíos */
+}
+.image-gallery-thumbnails img {
+  width: 80px !important;
+  height: 60px !important;
+  object-fit: cover !important;
+  border-radius: 5px;
+}
+
+.image-gallery {
+  max-width: 700px;
+  margin: 0 auto;
+}
+

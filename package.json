@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "react-image-gallery": "^1.4.0",
     "react-router-dom": "^7.6.1"
   }
 }

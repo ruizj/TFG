@@ -3,10 +3,11 @@ import VehicleCard from '../components/VehicleCard'
 const vehiculos = [
   {
     id: 1,
-    modelo: 'Renault Clio 2017',
-    precio: 8500,
+    modelo: 'Peugeot Partnert 1.9D',
+    precio: 3500,
     estado: 'Disponible',
-    imagenes: ['/assets/clio1.jpg', '/assets/clio2.jpg', '/assets/clio3.jpg']
+    imagenes: ['/assets/Vehiculos/Peugeot/1.jpg', '/assets/Vehiculos/Peugeot/2.jpg', '/assets/Vehiculos/Peugeot/3.jpg', '/assets/Vehiculos/Peugeot/4.jpg',
+       '/assets/Vehiculos/Peugeot/5.jpg', '/assets/Vehiculos/Peugeot/6.jpg', '/assets/Vehiculos/Peugeot/7.jpg', '/assets/Vehiculos/Peugeot/8.jpg']
   },
   {
     id: 2,
