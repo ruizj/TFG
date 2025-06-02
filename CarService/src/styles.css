@@ -1,0 +1,80 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f9f9f9;
+}
+.header, .footer {
+  background: #0d3b66;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+.header nav a {
+  color: #fff;
+  margin: 0 1em;
+  text-decoration: none;
+}
+.header nav a:hover {
+  text-decoration: underline;
+}
+.main {
+  padding: 2em;
+}
+.service-card, .vehicle-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  margin: 1em;
+  padding: 1em;
+  display: inline-block;
+  vertical-align: top;
+  width: 250px;
+}
+.servicios-lista, .vehiculos-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 220px;
+  margin: auto;
+}
+.carousel img {
+  border-radius: 8px;
+}
+.carousel button {
+  position: absolute;
+  top: 40%;
+  background: rgba(0,0,0,0.3);
+  color: #fff;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  padding: 0.2em 0.6em;
+  border-radius: 50%;
+}
+.carousel button:first-of-type { left: 5px; }
+.carousel button:last-of-type { right: 5px; }
+.form-reserva {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  max-width: 400px;
+}
+.form-reserva input, .form-reserva select {
+  padding: 0.5em;
+  font-size: 1em;
+}
+.form-reserva button {
+  background: #0d3b66;
+  color: #fff;
+  border: none;
+  padding: 0.7em;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.form-reserva button:hover {
+  background: #145da0;
+}
