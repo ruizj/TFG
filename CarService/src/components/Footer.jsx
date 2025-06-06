@@ -14,14 +14,9 @@ export default function Footer() {
         <div className="text-sm text-gray-400 text-center md:text-right">
           <div>© {new Date().getFullYear()} CarService Popeye. Todos los derechos reservados.</div>
           <div className="mt-1">
-            <a
-              href="mailto:info@carservicepopeye.com"
-              className="hover:text-gray-200 underline transition-colors"
-            >
-              info@carservicepopeye.com
-            </a>
+
            
-            <span>+34 600 000 000</span>
+            <span>Desarrollado por: </span><span className="font-bold">Javier Ruiz Porta</span>
           </div>
         </div>
       </div>
