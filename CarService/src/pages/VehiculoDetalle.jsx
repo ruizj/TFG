@@ -1,82 +1,92 @@
-import { useParams, Link } from 'react-router-dom'
-import ImageGallery from 'react-image-gallery'
-import 'react-image-gallery/styles/css/image-gallery.css'
+import React from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
-// Simulación de datos
-const vehiculos = [
-  {
-    id: 1,
-    modelo: 'Peugeot Partner 1.9D',
-    precio: 3500,
-    estado: 'Disponible',
-    descripcion: 'Disponible Peugeot partner año 2007 1.9D 69Cv 135.000km Cambio de aceite y filtros recién hecho, ITV recién pasada, perfecta para el campo. TRANSFERENCIA INCLUIDA!!',
-    detalles: 'Motor 1.9 Diesel, 69CV, 135.000km.',
-    imagenes: [
-      '/assets/Vehiculos/Peugeot/1.jpg',
-      '/assets/Vehiculos/Peugeot/2.jpg',
-      '/assets/Vehiculos/Peugeot/3.jpg',
-      '/assets/Vehiculos/Peugeot/4.jpg',
-      '/assets/Vehiculos/Peugeot/5.jpg',
-      '/assets/Vehiculos/Peugeot/6.jpg',
-      '/assets/Vehiculos/Peugeot/7.jpg',
-      '/assets/Vehiculos/Peugeot/8.jpg'
-    ]
-  },
-  {
-    id: 2,
-    modelo: 'Seat Ibiza 2019',
-    precio: 10500,
-    estado: 'Disponible',
-    descripcion: 'Muy cuidado, todas las revisiones en taller oficial.',
-    detalles: 'Motor 1.0 TSI, 95CV, gasolina, 50.000km.',
-    imagenes: [
-      '/assets/ibiza1.jpg',
-      '/assets/ibiza2.jpg'
-    ]
+export default function VehiculoDetalle({ vehicles }) {
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  // Busca el vehículo por id
+  const vehicle = vehicles.find(v => String(v.id) === id);
+
+  if (!vehicle) {
+    return (
+      <div className="flex flex-col flex-1">
+        <div className="max-w-4xl w-full mx-auto p-8 text-center text-gray-300 flex-1">
+          <h2 className="text-3xl font-bold mb-4">Vehículo no encontrado</h2>
+          <button
+            onClick={() => navigate(-1)}
+            className="mt-4 px-6 py-3 bg-blue-700 hover:bg-blue-600 rounded text-white font-semibold"
+          >
+            Volver atrás
+          </button>
+        </div>
+      </div>
+    );
   }
-]
-
-function VehiculoDetalle() {
-  const { id } = useParams()
-  const vehiculo = vehiculos.find(v => v.id === Number(id))
-
-  if (!vehiculo) return <p>Vehículo no encontrado.</p>
-
-  // Prepara las imágenes para react-image-gallery
-  const images = vehiculo.imagenes.map(url => ({
-    original: url,
-    thumbnail: url
-  }))
 
   return (
-    <section style={{ maxWidth: '700px', margin: '2rem auto', padding: '0 1rem' }}>
-      <h2>{vehiculo.modelo}</h2>
-      <ImageGallery
-        items={images}
-        showPlayButton={false}
-        showFullscreenButton={false}
-        thumbnailPosition="bottom"
-        autoPlay={true}
-        slideInterval={3500}
-      />
-      <p><strong>Precio:</strong> {vehiculo.precio} €</p>
-      <p><strong>Estado:</strong> {vehiculo.estado}</p>
-      <p><strong>Descripción:</strong> {vehiculo.descripcion}</p>
-      <p><strong>Detalles técnicos:</strong> {vehiculo.detalles}</p>
-      <a
-        href={`https://wa.me/34600000000?text=Hola,%20estoy%20interesado%20en%20el%20${encodeURIComponent(vehiculo.modelo)}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{ display: 'inline-block', marginTop: '1rem', color: '#0d3b66', textDecoration: 'none', fontWeight: 'bold' }}
-      >
-        Contactar por WhatsApp
-      </a>
-      <br />
-      <Link to="/vehiculos" style={{ display: 'inline-block', marginTop: '1rem', color: '#145da0' }}>
-        Volver al listado
-      </Link>
-    </section>
-  )
+    <div className="flex flex-col flex-1">
+      <div className="max-w-5xl w-full mx-auto p-8 text-gray-200 flex-1">
+        <button
+          onClick={() => navigate(-1)}
+          className="mb-6 px-4 py-2 bg-blue-700 hover:bg-blue-600 rounded text-white font-semibold"
+        >
+          ← Volver
+        </button>
+        <div className="flex flex-col md:flex-row gap-8">
+          {/* Imagen grande */}
+          <div className="flex-1 rounded-2xl overflow-hidden shadow-lg border-4 border-blue-900">
+            <img
+              src={vehicle.image}
+              alt={vehicle.title}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+          {/* Detalles */}
+          <div className="flex-1 flex flex-col">
+            <h1 className="text-4xl font-extrabold mb-2">
+              {vehicle.title}{" "}
+              {vehicle.year && (
+                <span className="text-gray-400 font-normal">({vehicle.year})</span>
+              )}
+            </h1>
+            {vehicle.price && (
+              <p className="text-2xl font-semibold text-green-400 mb-2">
+                {vehicle.price}
+              </p>
+            )}
+            {vehicle.km && (
+              <p className="text-lg font-semibold text-gray-300 mb-4">
+                Kilómetros: <span className="text-green-400">{vehicle.km}</span>
+              </p>
+            )}
+            {vehicle.description && (
+              <p className="text-gray-300 mb-6">{vehicle.description}</p>
+            )}
+            {vehicle.features && vehicle.features.length > 0 && (
+              <ul className="mb-6 flex flex-wrap gap-3">
+                {vehicle.features.map((feat, idx) => (
+                  <li
+                    key={idx}
+                    className="bg-blue-800/70 px-3 py-1 rounded text-sm text-gray-200"
+                  >
+                    {feat}
+                  </li>
+                ))}
+              </ul>
+            )}
+            {/* Botón de contacto o reserva */}
+            <a
+              href={`https://wa.me/34600000000?text=Hola,%20quiero%20más%20info%20del%20vehículo%20${encodeURIComponent(vehicle.title)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-auto inline-block px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl shadow-lg text-lg text-center transition"
+            >
+              Contactar por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
-
-export default VehiculoDetalle

@@ -1,0 +1,7 @@
+/* src/styles/gallery-custom.css */
+.custom-gallery-image {
+  width: 100%;
+  height: 320px;        /* Elige la altura que prefieras */
+  object-fit: cover;    /* Recorta y centra la imagen para que no se deforme */
+  border-radius: 1.5rem; /* Opcional: igual que tu diseño */
+}
