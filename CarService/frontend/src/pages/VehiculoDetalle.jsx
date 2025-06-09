@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-export default function VehiculoDetalle({ vehicles }) {
+export default function VehiculoDetalle() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [vehicle, setVehicle] = useState(null);
 
-  // Busca el vehículo por id
-  const vehicle = vehicles.find(v => String(v.id) === id);
+  useEffect(() => {
+    fetch(`http://localhost:4000/api/vehicles/${id}`)
+      .then(res => res.json())
+      .then(data => setVehicle(data));
+  }, [id]);
 
   if (!vehicle) {
     return (
@@ -34,18 +38,16 @@ export default function VehiculoDetalle({ vehicles }) {
           ← Volver
         </button>
         <div className="flex flex-col md:flex-row gap-8">
-          {/* Imagen grande */}
           <div className="flex-1 rounded-2xl overflow-hidden shadow-lg border-4 border-blue-900">
             <img
               src={vehicle.image}
-              alt={vehicle.title}
+              alt={vehicle.title || vehicle.brand}
               className="w-full h-auto object-cover"
             />
           </div>
-          {/* Detalles */}
           <div className="flex-1 flex flex-col">
             <h1 className="text-4xl font-extrabold mb-2">
-              {vehicle.title}{" "}
+              {vehicle.title || `${vehicle.brand} ${vehicle.model}`}{" "}
               {vehicle.year && (
                 <span className="text-gray-400 font-normal">({vehicle.year})</span>
               )}
@@ -75,9 +77,8 @@ export default function VehiculoDetalle({ vehicles }) {
                 ))}
               </ul>
             )}
-            {/* Botón de contacto o reserva */}
             <a
-              href={`https://wa.me/34600000000?text=Hola,%20quiero%20más%20info%20del%20vehículo%20${encodeURIComponent(vehicle.title)}`}
+              href={`https://wa.me/34600000000?text=Hola,%20quiero%20más%20info%20del%20vehículo%20${encodeURIComponent(vehicle.title || vehicle.brand)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-auto inline-block px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl shadow-lg text-lg text-center transition"

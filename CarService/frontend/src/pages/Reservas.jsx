@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaCalendarAlt } from "react-icons/fa";
 
 const TIME_SLOTS = [
@@ -32,12 +32,18 @@ export default function Reservas() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  // Simula reservas ya hechas (en producción esto vendría del backend)
+  // Cargar reservas del backend al iniciar
+  useEffect(() => {
+    fetch("http://localhost:4000/api/reservations")
+      .then(res => res.json())
+      .then(data => setReservations(data));
+  }, []);
+
   const isSlotTaken = reservations.some(
     (r) => r.date === date && r.slot === slot
   );
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
     setSuccess("");
@@ -55,15 +61,28 @@ export default function Reservas() {
       return;
     }
 
-    setReservations([
-      ...reservations,
-      { date, slot, service, name }
-    ]);
-    setSuccess("¡Reserva realizada con éxito!");
-    setDate("");
-    setSlot("");
-    setService("");
-    setName("");
+    try {
+      const response = await fetch("http://localhost:4000/api/reservations", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, date, slot, service }),
+      });
+      if (response.status === 201) {
+        const newReservation = await response.json();
+        setReservations([...reservations, newReservation]);
+        setSuccess("¡Reserva realizada con éxito!");
+        setDate("");
+        setSlot("");
+        setService("");
+        setName("");
+      } else if (response.status === 409) {
+        setError("Esta franja ya está reservada. Elige otra.");
+      } else {
+        setError("Error al hacer la reserva.");
+      }
+    } catch {
+      setError("Error de conexión con el servidor.");
+    }
   };
 
   return (

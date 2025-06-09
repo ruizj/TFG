@@ -1,32 +1,38 @@
-const pool = require('../db');
 const nodemailer = require('nodemailer');
 
+// Configura el transporte SMTP (usa variables de entorno en producción)
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
+    user: process.env.EMAIL_USER, // tu email Gmail
+    pass: process.env.EMAIL_PASS  // contraseña o app password
+  }
 });
 
 exports.sendContact = async (req, res) => {
   const { name, email, message } = req.body;
+  if (!name || !email || !message) {
+    return res.status(400).json({ message: 'Faltan campos obligatorios.' });
+  }
+
+  const mailOptions = {
+    from: email,
+    to: 'jrtecnologiapr@gmail.com',
+    subject: 'Nuevo mensaje de contacto desde la web',
+    html: `
+      <h2>Nuevo mensaje de contacto</h2>
+      <p><b>Nombre:</b> ${name}</p>
+      <p><b>Email:</b> ${email}</p>
+      <p><b>Mensaje:</b></p>
+      <p>${message}</p>
+    `
+  };
+
   try {
-    // Guarda el mensaje en la base de datos
-    await pool.query(
-      'INSERT INTO contact_messages (name, email, message) VALUES ($1, $2, $3)',
-      [name, email, message]
-    );
-    // Envía el correo
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER,
-      subject: 'Nuevo mensaje de contacto',
-      text: `Nombre: ${name}\nEmail: ${email}\nMensaje:\n${message}`,
-    });
-    res.status(200).json({ message: 'Mensaje enviado correctamente' });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Error al enviar el mensaje' });
+    await transporter.sendMail(mailOptions);
+    res.status(200).json({ message: 'Mensaje enviado correctamente.' });
+  } catch (err) {
+    console.error('Error enviando email:', err);
+    res.status(500).json({ message: 'Error al enviar el mensaje.' });
   }
 };

@@ -1,18 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Contacto = () => {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+    setSuccess("");
+    setError("");
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSuccess("");
+    setError("");
+    try {
+      const res = await fetch("http://localhost:4000/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setSuccess("¡Mensaje enviado correctamente!");
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        const data = await res.json();
+        setError(data.message || "Error al enviar el mensaje.");
+      }
+    } catch {
+      setError("Error de conexión con el servidor.");
+    }
+  };
+
   return (
     <div className="flex flex-col md:flex-row gap-6 max-w-4xl mx-auto mt-8 p-4">
       {/* Tarjeta Formulario */}
       <div className="flex-1 bg-white rounded-lg shadow p-6">
         <h2 className="text-2xl font-bold mb-4 text-center">Contáctanos</h2>
-        <form className="flex flex-col gap-4">
+        <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
           <input
             type="text"
             name="name"
             placeholder="Nombre"
             className="border border-gray-300 rounded px-3 py-2"
             required
+            value={form.name}
+            onChange={handleChange}
           />
           <input
             type="email"
@@ -20,6 +54,8 @@ const Contacto = () => {
             placeholder="Correo electrónico"
             className="border border-gray-300 rounded px-3 py-2"
             required
+            value={form.email}
+            onChange={handleChange}
           />
           <textarea
             name="message"
@@ -27,7 +63,15 @@ const Contacto = () => {
             rows={4}
             className="border border-gray-300 rounded px-3 py-2"
             required
+            value={form.message}
+            onChange={handleChange}
           />
+          {error && (
+            <div className="bg-red-500/80 text-white rounded px-4 py-2">{error}</div>
+          )}
+          {success && (
+            <div className="bg-green-600/80 text-white rounded px-4 py-2">{success}</div>
+          )}
           <button
             type="submit"
             className="bg-blue-600 text-white rounded px-4 py-2 hover:bg-blue-700 transition"
@@ -35,9 +79,10 @@ const Contacto = () => {
             Enviar
           </button>
         </form>
+        {/* WhatsApp y datos de contacto igual que antes */}
         <div className="mt-6 flex flex-col items-center gap-2">
           <a
-            href="https://wa.me/34612345678" // Cambia por tu número real sin espacios ni símbolos
+            href="https://wa.me/34612345678"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition"
@@ -51,12 +96,10 @@ const Contacto = () => {
           <div className="text-center mt-4 text-gray-700">
             <p>Teléfono: +34 123 456 789</p>
             <p>Email: contacto@tusitio.com</p>
-       
           </div>
         </div>
       </div>
-
-      {/* Tarjeta Mapa */}
+      {/* Tarjeta Mapa igual que antes */}
       <div className="flex-1 bg-white rounded-lg shadow p-6 flex flex-col items-center justify-center">
         <h2 className="text-2xl font-bold mb-4 text-center">Dónde estamos</h2>
         <div className="w-full h-80">
@@ -71,9 +114,6 @@ const Contacto = () => {
             allowFullScreen
           ></iframe>
         </div>
-        <p className="mt-4 text-center text-gray-600">
-       
-        </p>
       </div>
     </div>
   );
