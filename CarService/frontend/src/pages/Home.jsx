@@ -22,7 +22,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <a
-              href="https://wa.me/34600000000?text=Hola,%20quiero%20pedir%20cita%20en%20CarService%20Popeye"
+              href="https://wa.me/34637233085text=Hola,%20quiero%20pedir%20cita%20en%20CarService%20Popeye"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl shadow-lg text-lg transition"

@@ -82,7 +82,7 @@ const Contacto = () => {
         {/* WhatsApp y datos de contacto igual que antes */}
         <div className="mt-6 flex flex-col items-center gap-2">
           <a
-            href="https://wa.me/34612345678"
+            href="https://wa.me/34637233085"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition"
@@ -94,8 +94,8 @@ const Contacto = () => {
             WhatsApp
           </a>
           <div className="text-center mt-4 text-gray-700">
-            <p>Teléfono: +34 123 456 789</p>
-            <p>Email: contacto@tusitio.com</p>
+            <p>Teléfono: +34 637233085</p>
+            <p>Email: carservicepopeye@gmail.com</p>
           </div>
         </div>
       </div>

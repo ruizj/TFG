@@ -42,7 +42,7 @@ export default function Vehiculos() {
             <p className="text-lg text-gray-200 font-semibold">
               ¿Interesado en alguno? <span className="text-green-400 font-bold">Pide información o reserva</span> directamente por nuestro botón de WhatsApp.
               <a
-                href="https://wa.me/34600000000?text=Hola,%20quiero%20información%20sobre%20vuestros%20servicios"
+                href="https://wa.me/34637233085?text=Hola,%20quiero%20información%20sobre%20vuestros%20servicios"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-3 bg-green-500 hover:bg-green-600 text-white font-bold rounded-xl shadow-lg text-lg transition"

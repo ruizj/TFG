@@ -28,7 +28,7 @@ function App() {
         <Footer />
         {/* Botón flotante de WhatsApp */}
         <FloatingWhatsApp
-          phoneNumber="34600000000"
+          phoneNumber="34637233085"
           accountName="CarService Popeye"
           avatar="/assets/Logo/logoBlanco.png"
           statusMessage="¡Normalmente responde en minutos!"
