@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 
 export default function Vehiculos() {
   const [vehicles, setVehicles] = useState([]);
+  const backendUrl = "http://localhost:4000"; // Cambia si tu backend está en otro dominio/puerto
 
   useEffect(() => {
     fetch("http://localhost:4000/api/vehicles")
@@ -22,11 +23,19 @@ export default function Vehiculos() {
           Descubre nuestra selección de vehículos revisados, garantizados y listos para entregar. Todos nuestros coches pasan por un estricto control de calidad y cuentan con historial transparente.
         </p>
         <div className="w-full grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          {vehicles.map((vehicle) => (
-            <Link key={vehicle.id} to={`/vehiculos/${vehicle.id}`} className="h-full">
-              <VehicleCard {...vehicle} />
-            </Link>
-          ))}
+          {vehicles.map((vehicle) => {
+            // Usa la primera imagen del array si existe, si no la imagen principal
+            const firstImage =
+              vehicle.images && vehicle.images.length > 0
+                ? backendUrl + vehicle.images[0]
+                : backendUrl + vehicle.image;
+
+            return (
+              <Link key={vehicle.id} to={`/vehiculos/${vehicle.id}`} className="h-full">
+                <VehicleCard {...vehicle} image={firstImage} />
+              </Link>
+            );
+          })}
         </div>
         <div className="mt-12 flex justify-center w-full">
           <div className="bg-blue-900/80 rounded-xl px-6 py-4 shadow text-center max-w-xl w-full">

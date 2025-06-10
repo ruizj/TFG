@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import ImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css";
 
 export default function VehiculoDetalle() {
   const { id } = useParams();
@@ -28,6 +30,23 @@ export default function VehiculoDetalle() {
     );
   }
 
+  // Usa el array de imágenes recibido del backend
+  
+  const backendUrl = "http://localhost:4000"; // <---  Ajusta si tu backend usa otro puerto/dominio
+const images =
+  vehicle.images && vehicle.images.length > 0
+    ? vehicle.images.map(img => ({
+        original: backendUrl + img,
+        thumbnail: backendUrl + img,
+      }))
+    : [
+        {
+          original: backendUrl + vehicle.image,
+          thumbnail: backendUrl + vehicle.image,
+        },
+      ];
+
+
   return (
     <div className="flex flex-col flex-1">
       <div className="max-w-5xl w-full mx-auto p-8 text-gray-200 flex-1">
@@ -38,12 +57,31 @@ export default function VehiculoDetalle() {
           ← Volver
         </button>
         <div className="flex flex-col md:flex-row gap-8">
-          <div className="flex-1 rounded-2xl overflow-hidden shadow-lg border-4 border-blue-900">
-            <img
-              src={vehicle.image}
-              alt={vehicle.title || vehicle.brand}
-              className="w-full h-auto object-cover"
-            />
+          <div className="flex-1 rounded-2xl overflow-hidden shadow-lg border-4 border-blue-900 flex items-center">
+          <ImageGallery
+  items={images}
+  showPlayButton={false}
+  showFullscreenButton={true}
+  showThumbnails={true}
+  additionalClass="w-full"
+  renderItem={item => (
+    <img
+      src={item.original}
+      alt=""
+      className="w-full h-[400px] object-cover rounded-2xl"
+      style={{ maxHeight: 400 }}
+    />
+  )}
+  renderThumbInner={item => (
+    <img
+      src={item.thumbnail}
+      alt=""
+      className="w-20 h-20 object-cover rounded-md border border-blue-800"
+    />
+  )}
+/>
+
+
           </div>
           <div className="flex-1 flex flex-col">
             <h1 className="text-4xl font-extrabold mb-2">
